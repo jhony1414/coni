@@ -1,0 +1,9 @@
+
+.lateral {
+    height: 100vh;
+    background-color: rgba(148, 2, 77, 0.8);
+    color:beige;
+}
+.centrar{
+    margin: 0 auto;
+}
