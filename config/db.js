@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const datos = require('dotenv').config()
 
 /* // Option 1: Passing a connection URI
 const sequelize = new Sequelize('sqlite::memory:') // Example for sqlite
@@ -12,7 +13,7 @@ const sequelize = new Sequelize({
  */
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('', '', '', {
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
   host: '127.0.0.1',
   dialect: 'mysql'
 });
