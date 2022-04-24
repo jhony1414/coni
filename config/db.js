@@ -12,7 +12,7 @@ const sequelize = new Sequelize({
  */
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize('movimientos', 'root', 'jhonykk', {
+const sequelize = new Sequelize('', '', '', {
   host: '127.0.0.1',
   dialect: 'mysql'
 });
