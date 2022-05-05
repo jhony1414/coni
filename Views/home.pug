@@ -1,4 +1,39 @@
 extends layout 
 
 block contenido 
-    h1.text-center Home
+
+    .card.shadow-lg.mt-3
+
+        
+        .card-body
+            if( movimientos )
+                            
+                h2.card-title.text-center Todos los Movimientos
+                hr
+                table.table
+                    thead
+
+                        tr
+                        th(scope='col') Fecha
+                        th(scope='col') Concepto
+                        th(scope='col') Tipo
+                        th(scope='col') Importe
+                        th(scope='col') Acciones
+                    tbody
+                        each movimiento in movimientos
+                            tr
+                                th(scope='row')=movimiento.fecha
+                                td=movimiento.concepto
+                                td(class=`${movimiento.tipo == 'Ingreso' ? 'text-success' : 'text-danger'}`)=movimiento.tipo
+                                td #{ movimiento.importe } 
+                                    span CHF
+                                td
+                                    a.btn.btn-success.btn-sm.shadow(href=`/editar/${movimiento.id}`) Editar 
+                                    span &nbsp; &nbsp;
+                                    a.btn.btn-danger.btn-sm.shadow(href="") Borrar
+                                 
+                            tr
+                        
+
+
+    

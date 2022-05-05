@@ -1,0 +1,32 @@
+mixin formulario( movimiento = {} )
+
+    form(action=`/nuevo/${movimiento.id || ''}` method='POST') 
+        .row
+            .col-3
+                label(for='fecha') Fecha
+                input.form-control(value=movimiento.fecha type='date' placeholder='Fecha' name='fecha' required)
+                            
+                        
+            .col-3
+                label(for="importe") Importe
+                input.form-control.shadow(value=movimiento.importe type='number' placeholder='Importe' name='importe' id ='importe' required)
+                            
+                            
+
+            .col-3
+                label(for='tipo') Tipo 
+                select.form-select.shadow(name='tipo', id='tipo' required)
+                    option(select)=movimiento.tipo 
+                    option(value='Ingreso') Ingreso
+                    option(value='Gasto') Gasto
+                            
+
+                
+            .row.mt-3
+                .col
+                    label(for='concepto') Concepto
+                    input.form-control.shadow(value=movimiento.concepto type='text' placeholder='Concepto' name='concepto' id='concepto' required)
+
+                             
+                    hr
+                    input.btn.btn-outline-success.right.shadow-lg(type="submit" value=`${movimiento.concepto ? 'Actualizar' : 'Guardar'}`)

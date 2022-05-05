@@ -16,12 +16,24 @@ html(lang="es")
                 
                 .text-center.mt-2
                     div.d-flex.justify-content-center                        
-                        h3 Movimientos
+                        h3 
+                            a.home(href='/') Movimientos
                     hr
                     a.btn.btn-primary.shadow-lg(href= '/nuevo' type='button') Crear Nuevo +
+                    
+                    button.btn.btn-success.mt-3(type='button')
+                        | Ingresos 
+                        span.badge.bg-light.text-dark #{ingresos} CHF
 
+                    button.btn.btn-danger.mt-3(type='button')
+                        | Gastos 
+                        span.badge.bg-light.text-dark #{gastos} CHF
+                    
+                    button.btn.btn-warning.mt-3(type='button')
+                        | Total 
+                        span.badge.bg-light.text-dark #{total} CHF
                         
-            section.col-10.border
+            section.col-10
                 block contenido
 
 

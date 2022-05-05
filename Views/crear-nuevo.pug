@@ -1,10 +1,13 @@
 extends layout
+include mixins/formulario
 
 block contenido
     h3.text-center.mt-5 
     .card.text-dark.bg-light.mb-3.centrar.shadow-lg(style='max-width: 60rem;')
         .card-header.text-center 
-            h3 Nuevo Movimiento
+            h3 #{titulo} 
+                if movimiento
+                    span - #{movimiento.concepto}
 
         .card-body
             if errores 
@@ -12,29 +15,8 @@ block contenido
                    .alert.alert-danger.alert-dismissible.fade.show.shadow.text-center(role='alert')
                         strong #{error.msg}
                         button.btn-close(type='button' data-bs-dismiss='alert' aria-label='Close')
-            form(action="/nuevo" method='POST') 
-                .row
-                    .col-3.form-floating
-                        input.form-control(type='date' placeholder='Fecha' name='fecha' required)
-                        label(for='fecha') Fecha
-                    
-                    .col.form-floating
-                        input.form-control.shadow(type='number' placeholder='Importe' name='importe' id ='importe' required)
-                        label(for="importe") Importe 
-                        
 
-                    .col-3.form-floating
-                        select.form-select.shadow(name='tipo', id='tipo' required)
-                            option(value='ingreso') Ingreso
-                            option(value='gasto') Gasto
-                        label(for='tipo') Tipo  
-
-                .row.mt-3
-                    .col.form-floating
-                        input.form-control.shadow(type='text' placeholder='Concepto' name='concepto' id='concepto' required)
-                        label(for='concepto') Concepto
-                hr
-                input.btn.btn-outline-success.right.shadow-lg(type="submit" value='Guardar')
+            +formulario(movimiento)
 
                     
 

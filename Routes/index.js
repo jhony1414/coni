@@ -9,8 +9,11 @@ module.exports = () => {
     //Movimientos
     
     router.get('/', MovController.index)
+
+    //Formulario nuevo
     router.get('/nuevo', MovController.nuevo)
 
+    //Crear nuevo
     router.post('/nuevo', 
 
         /* body( 'fecha' ).not().isEmpty(),
@@ -19,6 +22,11 @@ module.exports = () => {
         body( 'concepto' ).not().isEmpty().trim().escape(), */
         MovController.guardar
     )
+    //Formulario editar
+    router.get('/editar/:id', MovController.formularioActualizar)
+
+    //Actualizar
+    router.post('/nuevo/:id', MovController.actualizar)
 
 
     return router

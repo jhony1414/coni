@@ -10,7 +10,7 @@ const Movimientos = db.define('movimientos',
             },
 
         fecha: {
-            type: DataTypes.DATE
+            type: DataTypes.STRING,
             },
 
         importe: {
